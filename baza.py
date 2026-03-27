@@ -8,7 +8,8 @@ c=conn.cursor()
 
 #Query database
 
-c.execute("SELECT rowid, * FROM  klijenti ")
+c.execute("SELECT * FROM  klijenti WHERE prezime LIKE 'Vi%'")
+c.execute("SELECT * FROM  klijenti WHERE email LIKE '%gmail.com'")
 
 
 items=c.fetchall()
