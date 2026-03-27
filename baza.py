@@ -6,11 +6,12 @@ conn=sqlite3.connect('klijnet.db')
 #Kreiranje kursora
 c=conn.cursor()
 
-#Query database
+#Brisanje zapisa
 
-c.execute("SELECT * FROM  klijenti WHERE prezime LIKE 'Vi%'")
-c.execute("SELECT * FROM  klijenti WHERE email LIKE '%gmail.com'")
+c.execute("DELETE from klijenti WHERE rowid=6")
+conn.commit()
 
+c.execute("SELECT rowid, * FROM klijenti")
 
 items=c.fetchall()
 
