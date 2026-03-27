@@ -6,8 +6,13 @@ conn=sqlite3.connect('klijnet.db')
 #Kreiranje kursora
 c=conn.cursor()
 
-#Kreiraj prvi jednostruki zapis
-c.execute("INSERT INTO klijenti VALUES('Vito', 'Vitajic', 'vitoo@gmail.com')")
+#Kreiraj mnogo zapisa
+zapisi=[
+    ('Viktor', 'Viktoric','viktor@yahoo.com'),
+    ('Ivan', 'Ivanic', 'ivan@hotmail.com'),
+    ('Hugo', 'Ivanic', 'hugo@hr.hr')
+]
+c.executemany("INSERT INTO klijenti VALUES (?,?,?)",zapisi)
 
 print("Komanda izvrsena uspjesno...")
 
