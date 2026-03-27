@@ -6,15 +6,23 @@ conn=sqlite3.connect('klijnet.db')
 #Kreiranje kursora
 c=conn.cursor()
 
-#Kreiraj mnogo zapisa
-zapisi=[
-    ('Viktor', 'Viktoric','viktor@yahoo.com'),
-    ('Ivan', 'Ivanic', 'ivan@hotmail.com'),
-    ('Hugo', 'Ivanic', 'hugo@hr.hr')
-]
-c.executemany("INSERT INTO klijenti VALUES (?,?,?)",zapisi)
+#Query database
 
-print("Komanda izvrsena uspjesno...")
+c.execute("SELECT * FROM  klijenti ")
+
+#print(c.fetchone()[0])
+#print(c.fetchmany(4))
+#print(c.fetchall())
+
+items=c.fetchall()
+print("Ime Prezime"+"\t"+"email")
+print("-----------"+"\t"+"-----")
+
+for item in items:
+    print(item[0]+" " +item [1] + "\t" +item[2])
+
+
+#print("Komanda izvrsena uspjesno...")
 
 #Potvrda naredbe
 conn.commit()
