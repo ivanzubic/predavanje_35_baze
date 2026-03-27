@@ -6,19 +6,21 @@ conn=sqlite3.connect('klijnet.db')
 #Kreiranje kursora
 c=conn.cursor()
 
-#Brisanje zapisa
+#Redoslijed
 
-c.execute("DELETE from klijenti WHERE rowid=6")
-conn.commit()
+#c.execute("SELECT rowid, * FROM klijenti ORDER BY rowid DESC ")
+#c.execute("SELECT rowid, * FROM klijenti ORDER BY rowid ASC ")
+#c.execute("SELECT rowid, * FROM klijenti ORDER BY prezime")
+#c.execute("SELECT rowid, * FROM klijenti ORDER BY ime")
 
-c.execute("SELECT rowid, * FROM klijenti")
+#AND/OR
+c.execute("SELECT rowid, * FROM klijenti WHERE prezime LIKE 'Krun%' OR rowid=1 ")
+
 
 items=c.fetchall()
 
-
 for item in items:
     print(item)
-
 
 #print("Komanda izvrsena uspjesno...")
 
