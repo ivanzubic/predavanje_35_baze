@@ -14,8 +14,11 @@ c=conn.cursor()
 #c.execute("SELECT rowid, * FROM klijenti ORDER BY ime")
 
 #AND/OR
-c.execute("SELECT rowid, * FROM klijenti WHERE prezime LIKE 'Krun%' OR rowid=1 ")
+#c.execute("SELECT rowid, * FROM klijenti WHERE prezime LIKE 'Krun%' OR rowid=1 ")
 
+#Limits
+
+c.execute("SELECT rowid, * FROM klijenti ORDER BY rowid LIMIT 3")
 
 items=c.fetchall()
 
