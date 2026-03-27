@@ -6,12 +6,10 @@ conn=sqlite3.connect('klijnet.db')
 #Kreiranje kursora
 c=conn.cursor()
 
-#Kreiranje tablice
-c.execute("""CREATE TABLE klijenti(
-          ime DATATYPE,
-          prezime DATATYPE,
-          email DATATYPE
-          )""")
+#Kreiraj prvi jednostruki zapis
+c.execute("INSERT INTO klijenti VALUES('Vito', 'Vitajic', 'vitoo@gmail.com')")
+
+print("Komanda izvrsena uspjesno...")
 
 #Potvrda naredbe
 conn.commit()
